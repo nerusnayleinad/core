@@ -51,8 +51,12 @@ var delayLoadConfigs = [
 
 module.exports = main;
 
-if (!module.parent)
+if (!module.parent) {
+    var credentials = 'user:pass'
+    process.argv.pop()
+    process.argv.push(credentials)
     main(process.argv.slice(2));
+}
 
 function getDefaultSettings() {
     var suffix = hostname.parse(os.hostname()).env;
