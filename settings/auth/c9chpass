@@ -4,3 +4,4 @@ USER=$1
 PASS=$2
 
 sed -i "/var credentials =/c\var credentials = '$USER:$PASS'" /cloud9/server.js
+sed -i "s/John Doe/$USER/g" /cloud9/plugins/c9.vfs.standalone/standalone.js
